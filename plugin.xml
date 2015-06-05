@@ -73,6 +73,7 @@
         <source-file src="src/ios/FabricPlugin.m" />
 
         <framework src="libs/ios/Crashlytics.framework" custom="true" />
+        <framework src="libs/ios/Fabric.framework" custom="true" />
     </platform>
 
     <hook type="after_plugin_install" src="hooks/after_plugin_install.js" />
