@@ -62,15 +62,15 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-        <feature name="Crashlytics">
-            <param name="ios-package" value="CrashlyticsPlugin"/>
+        <feature name="Fabric">
+            <param name="ios-package" value="FabricPlugin"/>
             <param name="onload" value="true"/>
         </feature>
 
-        <preference name="CRASHLYTICS_API_KEY" value="$CRASHLYTICS_API_KEY"/>
+        <preference name="FABRIC_API_KEY" value="$FABRIC_API_KEY"/>
       </config-file>
-        <header-file src="src/ios/CrashlyticsPlugin.h" />
-        <source-file src="src/ios/CrashlyticsPlugin.m" />
+        <header-file src="src/ios/FabricPlugin.h" />
+        <source-file src="src/ios/FabricPlugin.m" />
 
         <framework src="libs/ios/Crashlytics.framework" custom="true" />
     </platform>

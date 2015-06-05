@@ -19,7 +19,7 @@ module.exports = {
                 outputPaths: [],
                 runOnlyForDeploymentPostprocessing: 0,
                 shellPath: '/bin/sh',
-                shellScript: '"../../plugins/org.apache.cordova.crashlytics/libs/ios/Crashlytics.framework/run ' + pluginConfig.apiKey + ' ' + pluginConfig.apiSecret + '"',
+                shellScript: '"../../plugins/co.flocode.cordova.fabric/libs/ios/Crashlytics.framework/run ' + pluginConfig.apiKey + ' ' + pluginConfig.apiSecret + '"',
                 showEnvVarsInLog: 0
             };
 
@@ -104,5 +104,5 @@ module.exports = {
         return (value.comment !== this._comment);
     },
 
-    _comment: 'Crashlytics run'
+    _comment: 'Fabric run'
 };

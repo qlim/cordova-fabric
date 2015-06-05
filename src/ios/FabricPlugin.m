@@ -1,14 +1,14 @@
 #import <Crashlytics/Crashlytics.h>
 
-#import "CrashlyticsPlugin.h"
+#import "FabricPlugin.h"
 
-@interface CrashlyticsPlugin ()
+@interface FabricPlugin ()
 
 @property (nonatomic, strong) Crashlytics* crashlytics;
 
 @end
 
-@implementation CrashlyticsPlugin
+@implementation FabricPlugin
 
 #pragma mark - Initializers
 
@@ -19,7 +19,7 @@
     NSString *apiKey = settings[@"crashlytics_api_key"];
 
     if (apiKey == nil) {
-        [NSException raise:@"CrashlyticsPlugin error!" format:@"No API Key configured"];
+        [NSException raise:@"FabricPlugin error!" format:@"No API Key configured"];
     }
 
     self.crashlytics = [Crashlytics startWithAPIKey:apiKey];
@@ -31,12 +31,6 @@
 
 - (void)log:(CDVInvokedUrlCommand *)command {
     CLSLog(@"%@", command.arguments[0]);
-
-    [self resultOK:command];
-}
-
-- (void)setApplicationInstallationIdentifier:(CDVInvokedUrlCommand *)command {
-    // no-op
 
     [self resultOK:command];
 }
@@ -91,7 +85,7 @@
     [self resultOK:command];
 }
 
-- (void)simulateCrash:(CDVInvokedUrlCommand *)command {
+- (void)crash:(CDVInvokedUrlCommand *)command {
     if (command.arguments.count == 0) {
         [self.crashlytics crash];
     } else {
