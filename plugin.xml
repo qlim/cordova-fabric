@@ -20,7 +20,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
       xmlns:android="http://schemas.android.com/apk/res/android"
-      id="com.flocode.cordova.fabric"
+      id="co.flocode.cordova.fabric"
       version="0.0.1">
     <name>Fabric</name>
     <description>Cordova Fabric Plugin</description>
