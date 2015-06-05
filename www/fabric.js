@@ -16,10 +16,10 @@ var Crashlytics = function() {
   var execCall;
   var rippleMock = (window.parent && window.parent.ripple);
   if(rippleMock) {
-    console.warn("navigator.crashlytics not defined : considering you're in dev mode and mocking it !");
-    execCall = function(methodName, args){ console.log("[Crashlytics] Call to "+methodName+"("+Array.prototype.join.apply(args, [", "])+")"); }
+    console.warn("navigator.fabric.crashlytics not defined : considering you're in dev mode and mocking it !");
+    execCall = function(methodName, args){ console.log("[Fabric] Call to " + methodName + "("+Array.prototype.join.apply(args, [", "])+")"); }
   } else {
-    execCall = function(methodName, args){ exec(null, null, "Crashlytics", methodName, args); };
+    execCall = function(methodName, args){ exec(null, null, "Fabric", methodName, args); };
   }
 
   var self = this;

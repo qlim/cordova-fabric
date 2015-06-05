@@ -35,7 +35,7 @@
     <preference name="FABRIC_API_KEY" />
     <preference name="FABRIC_API_SECRET" />
 
-    <js-module src="www/fabric.js" name="fabric">
+    <js-module src="www/fabric.js" name="Fabric">
         <clobbers target="navigator.fabric" />
     </js-module>
 

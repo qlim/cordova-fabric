@@ -7,20 +7,20 @@ module.exports = {
     createPropertiesFile: function() {
         var pluginConfig = common.getPluginConfig('android');
 
-        var crashlyticsPropertiesPath = this._getCrashlyticsPropertiesPath();
+        var fabricPropertiesPath = this._getFabricPropertiesPath();
 
-        var crashlyticsProperties = '';
-        crashlyticsProperties += 'apiKey=' + pluginConfig.apiKey + '\n';
-        crashlyticsProperties += 'apiSecret=' + pluginConfig.apiSecret + '\n';
+        var fabricProperties = '';
+        fabricProperties += 'apiKey=' + pluginConfig.apiKey + '\n';
+        fabricProperties += 'apiSecret=' + pluginConfig.apiSecret + '\n';
 
-        fs.writeFileSync(crashlyticsPropertiesPath, crashlyticsProperties);
+        fs.writeFileSync(fabricPropertiesPath, fabricProperties);
     },
 
     deletePropertiesFile: function() {
-        var crashlyticsPropertiesPath = this._getCrashlyticsPropertiesPath();
+        var fabricPropertiesPath = this._getFabricPropertiesPath();
 
         try {
-            fs.unlinkSync(crashlyticsPropertiesPath);
+            fs.unlinkSync(fabricPropertiesPath);
         } catch (e) {}
     },
 
@@ -64,7 +64,7 @@ module.exports = {
         this._writeBuildGradle(buildGradle);
     },
 
-    _getCrashlyticsPropertiesPath: function() {
+    _getFabricPropertiesPath: function() {
         return path.join('platforms', 'android', 'fabric.properties');
     },
 
