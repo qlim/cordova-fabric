@@ -19,7 +19,7 @@ module.exports = {
                 outputPaths: [],
                 runOnlyForDeploymentPostprocessing: 0,
                 shellPath: '/bin/sh',
-                shellScript: '"../../plugins/co.flocode.cordova.fabric/libs/ios/Crashlytics.framework/run ' + pluginConfig.apiKey + ' ' + pluginConfig.apiSecret + '"',
+                shellScript: '"../../plugins/co.flocode.cordova.fabric/libs/ios/Fabric.framework/run ' + pluginConfig.apiKey + '"',
                 showEnvVarsInLog: 0
             };
 
