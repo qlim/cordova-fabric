@@ -91,10 +91,10 @@ public class FabricPlugin extends CordovaPlugin {
                 Crashlytics.getInstance().core.setUserName(args.getString(0));
             }
         },
-        simulateCrash(0, true){
+        crash(0, true){
             @Override
             public void call(JSONArray args) throws JSONException {
-                String message = args.length() == 0 ? "This is a crash":args.getString(0);
+                String message = args.length() == 0 ? "Crashing from Cordova" : args.getString(0);
                 throw new RuntimeException(message);
             }
         };
