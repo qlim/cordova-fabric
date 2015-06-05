@@ -62,18 +62,22 @@
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-        <feature name="Fabric">
-            <param name="ios-package" value="FabricPlugin"/>
-            <param name="onload" value="true"/>
-        </feature>
+          <feature name="Fabric">
+              <param name="ios-package" value="FabricPlugin"/>
+              <param name="onload" value="true"/>
+          </feature>
 
-        <preference name="FABRIC_API_KEY" value="$FABRIC_API_KEY"/>
-      </config-file>
+          <preference name="FABRIC_API_KEY" value="$FABRIC_API_KEY"/>
+        </config-file>
         <header-file src="src/ios/FabricPlugin.h" />
         <source-file src="src/ios/FabricPlugin.m" />
 
         <framework src="libs/ios/Crashlytics.framework" custom="true" />
         <framework src="libs/ios/Fabric.framework" custom="true" />
+        <framework src="Security.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="libz.dylib" />
+        <framework src="libc++.dylib" />
     </platform>
 
     <hook type="after_plugin_install" src="hooks/after_plugin_install.js" />
