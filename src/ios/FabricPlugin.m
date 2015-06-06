@@ -4,8 +4,6 @@
 
 @interface FabricPlugin ()
 
-@property (nonatomic, strong) Crashlytics* crashlytics;
-
 @end
 
 @implementation FabricPlugin
@@ -14,15 +12,6 @@
 
 - (void)pluginInitialize {
     [super pluginInitialize];
-
-    NSDictionary *settings = self.commandDelegate.settings;
-    NSString *apiKey = settings[@"crashlytics_api_key"];
-
-    if (apiKey == nil) {
-        [NSException raise:@"FabricPlugin error!" format:@"No API Key configured"];
-    }
-
-    self.crashlytics = [Crashlytics startWithAPIKey:apiKey];
 }
 
 - (void)logException:(CDVInvokedUrlCommand *)command {
@@ -30,13 +19,13 @@
 }
 
 - (void)log:(CDVInvokedUrlCommand *)command {
-    CLSLog(@"%@", command.arguments[0]);
+    CLS_LOG(@"%@", command.arguments[0]);
 
     [self resultOK:command];
 }
 
 - (void)setBool:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setBoolValue:((NSNumber*)command.arguments[1]).boolValue forKey:command.arguments[0]];
+    [CrashlyticsKit setBoolValue:((NSNumber*)command.arguments[1]).boolValue forKey:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
@@ -46,13 +35,13 @@
 }
 
 - (void)setFloat:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setFloatValue:((NSNumber*)command.arguments[1]).floatValue forKey:command.arguments[0]];
+    [CrashlyticsKit setFloatValue:((NSNumber*)command.arguments[1]).floatValue forKey:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
 
 - (void)setInt:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setIntValue:((NSNumber*)command.arguments[1]).intValue forKey:command.arguments[0]];
+    [CrashlyticsKit setIntValue:((NSNumber*)command.arguments[1]).intValue forKey:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
@@ -62,32 +51,32 @@
 }
 
 - (void)setString:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setObjectValue:command.arguments[1] forKey:command.arguments[0]];
+    [CrashlyticsKit setObjectValue:(NSString *)command.arguments[1] forKey:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
 
 - (void)setUserEmail:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setUserEmail:command.arguments[0]];
+    [CrashlyticsKit setUserEmail:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
 
 - (void)setUserIdentifier:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setUserIdentifier:command.arguments[0]];
+    [CrashlyticsKit setUserIdentifier:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
 
 - (void)setUserName:(CDVInvokedUrlCommand *)command {
-    [self.crashlytics setUserName:command.arguments[0]];
+    [CrashlyticsKit setUserName:(NSString *)command.arguments[0]];
 
     [self resultOK:command];
 }
 
 - (void)crash:(CDVInvokedUrlCommand *)command {
     if (command.arguments.count == 0) {
-        [self.crashlytics crash];
+        [[Crashlytics sharedInstance] crash];
     } else {
         [NSException raise:@"Simulated Crash" format:@"%@", command.arguments[0]];
     }
