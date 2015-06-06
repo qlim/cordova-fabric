@@ -1,3 +1,4 @@
+#import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
 #import "FabricPlugin.h"
@@ -12,6 +13,8 @@
 
 - (void)pluginInitialize {
     [super pluginInitialize];
+
+    [Fabric with:@[CrashlyticsKit]];
 }
 
 - (void)logException:(CDVInvokedUrlCommand *)command {
