@@ -70,8 +70,7 @@
           <preference name="FABRIC_API_KEY" value="$FABRIC_API_KEY"/>
         </config-file>
 
-        <config-file target="*-Info.plist" parent="dict">
-          <key>Fabric</key>
+        <config-file target="*-Info.plist" parent="Fabric">
           <dict>
             <key>APIKey</key>
             <string>$FABRIC_API_KEY</string>
