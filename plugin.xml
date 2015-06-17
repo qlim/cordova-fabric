@@ -69,6 +69,21 @@
 
           <preference name="FABRIC_API_KEY" value="$FABRIC_API_KEY"/>
         </config-file>
+
+        <config-file target="*-Info.plist" parent="Fabric">
+          <key>APIKey</key>
+          <string>$FABRIC_API_KEY</string>
+          <key>Kits</key>
+          <array>
+            <dict>
+              <key>KitInfo</key>
+              <dict/>
+              <key>KitName</key>
+              <string>Crashlytics</string>
+            </dict>
+          </array>
+        </config-file>
+
         <header-file src="src/ios/FabricPlugin.h" />
         <source-file src="src/ios/FabricPlugin.m" />
 
